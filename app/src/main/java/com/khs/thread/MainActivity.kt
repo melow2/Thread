@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mBinding: ActivityMainBinding
     lateinit var instrumentSound:InstrumentSound
+    lateinit var newAsyncTask: ExampleAsyncTask
 
     var listener: View.OnClickListener = object : View.OnClickListener {
         var msg: Message? = null
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.btn_drum -> {
                     msg = Message.obtain()
                     msg?.what = InstrumentSound.SOUND_DRUM
+                }
+                R.id.btn_asynctask ->{
+                    newAsyncTask = ExampleAsyncTask(this@MainActivity,mBinding.tvSound)
+                    newAsyncTask.execute(100,50) // doinBackground param
                 }
             }
             msg?.let {
@@ -76,6 +81,7 @@ class MainActivity : AppCompatActivity() {
             btnPiano.setOnClickListener(listener)
             btnGuitar.setOnClickListener(listener)
             btnDrum.setOnClickListener(listener)
+            btnAsynctask.setOnClickListener(listener)
         }
         instrumentSound = InstrumentSound(mHandler)
         instrumentSound.isDaemon = true

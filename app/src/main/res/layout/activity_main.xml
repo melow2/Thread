@@ -59,6 +59,12 @@
                 android:id="@+id/btn_drum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+
+            <Button
+                android:text="Asynctask"
+                android:id="@+id/btn_asynctask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
