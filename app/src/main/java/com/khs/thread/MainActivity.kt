@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
             override fun handleMessage(msg: Message) {
                 super.handleMessage(msg)
                 var _activity = mWeakActivity.get()
-                if (_activity != null && msg.what==0) {
-                    _activity.mBinding.tvSecond.text = secondNum.toString()
+                if (_activity != null && msg.what==NewThread.NEWTHREAD_WHAT) {
+                    _activity.mBinding.tvSecond.text = msg.arg1.toString()
                 }
             }
         }
@@ -45,28 +45,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun startNum() {
         mainNum++;
-        val newThread = NewThread();
+        val newThread = NewThread(mHandler, secondNum);
         newThread.isDaemon = true
         newThread.start()
         mBinding.tvMain.text = mainNum.toString()
-
-    }
-
-    class NewThread() : Thread() {
-        override fun run() {
-            while (true) {
-                secondNum++;
-                try {
-                    sleep(600)
-                } catch (e: Exception) { }
-                val msg = Message.obtain()
-                msg.what = 0
-                msg.arg1 = 0
-                msg.arg2 = 0
-                msg.obj = null
-                mHandler.sendMessage(msg)
-            }
-        }
     }
 }
 
