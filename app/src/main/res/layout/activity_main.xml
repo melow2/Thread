@@ -30,9 +30,33 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
+            <TextView
+                android:id="@+id/tv_sound"
+                android:textSize="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <Button
                 android:text="start"
                 android:id="@+id/btn_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:text="피아노"
+                android:id="@+id/btn_piano"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:text="기타"
+                android:id="@+id/btn_guitar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:text="드럼"
+                android:id="@+id/btn_drum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
